@@ -1,0 +1,242 @@
+[
+    {
+        "id": "677bef11d9649cfe1d28e054",
+        "make": "Toyota",
+        "price": 35000.00,
+        "color": "Silver",
+        "model_id": "677bef11d9649cfe1d28e04a"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e055",
+        "make": "Ford",
+        "price": 45000.00,
+        "color": "Red",
+        "model_id": "677bef11d9649cfe1d28e04b"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e056",
+        "make": "BMW",
+        "price": 65000.00,
+        "color": "Blue",
+        "model_id": "677bef11d9649cfe1d28e04c"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e057",
+        "make": "Mercedes-Benz",
+        "price": 75000.00,
+        "color": "Black",
+        "model_id": "677bef11d9649cfe1d28e04d"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e058",
+        "make": "Honda",
+        "price": 25000.00,
+        "color": "White",
+        "model_id": "677bef11d9649cfe1d28e04e"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e059",
+        "make": "Chevrolet",
+        "price": 30000.00,
+        "color": "Green",
+        "model_id": "677bef11d9649cfe1d28e04f"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e05a",
+        "make": "Audi",
+        "price": 55000.00,
+        "color": "Gray",
+        "model_id": "677bef11d9649cfe1d28e050"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e05b",
+        "make": "Hyundai",
+        "price": 28000.00,
+        "color": "Yellow",
+        "model_id": "677bef11d9649cfe1d28e051"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e05c",
+        "make": "Nissan",
+        "price": 32000.00,
+        "color": "Orange",
+        "model_id": "677bef11d9649cfe1d28e052"
+    },
+    {
+        "id": "677bef11d9649cfe1d28e05d",
+        "make": "Tesla",
+        "price": 70000.00,
+        "color": "Purple",
+        "model_id": "677bef11d9649cfe1d28e053"
+    }
+]
+
+
+
+
+
+
+[
+    {
+        "id": "677bec0bd9649cfe1d28e041",
+        "name": "Camry",
+        "country": "Japan",
+        "year": 2023,
+        "description": "A mid-size sedan known for its reliability and fuel efficiency.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e02c"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e042",
+        "name": "Mustang",
+        "country": "USA",
+        "year": 2023,
+        "description": "A classic American muscle car with powerful engine options.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e02d"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e043",
+        "name": "M3",
+        "country": "Germany",
+        "year": 2023,
+        "description": "A high-performance sports sedan designed for driving enthusiasts.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e02e"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e044",
+        "name": "S-Class",
+        "country": "Germany",
+        "year": 2023,
+        "description": "A luxury sedan with cutting-edge technology and comfort.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e02f"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e045",
+        "name": "Civic",
+        "country": "Japan",
+        "year": 2023,
+        "description": "A compact car offering great fuel economy and modern features.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e030"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e046",
+        "name": "Malibu",
+        "country": "USA",
+        "year": 2023,
+        "description": "A comfortable and spacious sedan perfect for family use.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e031"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e047",
+        "name": "Q5",
+        "country": "Germany",
+        "year": 2023,
+        "description": "A luxury compact SUV combining performance and comfort.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e032"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e048",
+        "name": "Tucson",
+        "country": "South Korea",
+        "year": 2023,
+        "description": "A popular compact crossover SUV with advanced features.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e033"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e049",
+        "name": "Altima",
+        "country": "Japan",
+        "year": 2023,
+        "description": "A midsize sedan offering a smooth ride and efficient fuel economy.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e034"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e050",
+        "name": "Model 3",
+        "country": "USA",
+        "year": 2023,
+        "description": "An electric sedan known for its performance and cutting-edge technology.",
+        "manufacturer_id": "677bec0bd9649cfe1d28e035"
+    }
+]
+
+
+
+
+
+
+
+[
+    {
+        "id": "677bec0bd9649cfe1d28e02c",
+        "name": "Toyota",
+        "country": "Japan",
+        "foundation_year": 1937,
+        "website": "https://www.toyota-global.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e02d",
+        "name": "Ford",
+        "country": "USA",
+        "foundation_year": 1903,
+        "website": "https://www.ford.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e02e",
+        "name": "BMW",
+        "country": "Germany",
+        "foundation_year": 1916,
+        "website": "https://www.bmw.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e02f",
+        "name": "Mercedes-Benz",
+        "country": "Germany",
+        "foundation_year": 1926,
+        "website": "https://www.mercedes-benz.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e030",
+        "name": "Honda",
+        "country": "Japan",
+        "foundation_year": 1948,
+        "website": "https://www.honda.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e031",
+        "name": "Chevrolet",
+        "country": "USA",
+        "foundation_year": 1911,
+        "website": "https://www.chevrolet.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e032",
+        "name": "Audi",
+        "country": "Germany",
+        "foundation_year": 1909,
+        "website": "https://www.audi.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e033",
+        "name": "Hyundai",
+        "country": "South Korea",
+        "foundation_year": 1967,
+        "website": "https://www.hyundai.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e034",
+        "name": "Nissan",
+        "country": "Japan",
+        "foundation_year": 1933,
+        "website": "https://www.nissan-global.com"
+    },
+    {
+        "id": "677bec0bd9649cfe1d28e035",
+        "name": "Tesla",
+        "country": "USA",
+        "foundation_year": 2003,
+        "website": "https://www.tesla.com"
+    }
+]
+
+
+
