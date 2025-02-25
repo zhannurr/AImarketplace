@@ -1,0 +1,31 @@
+body {
+    font-family: "Montserrat";
+    background-color:  #9E2A2B;
+    margin-top: 20px;
+}
+
+
+section {
+    padding: 15px;
+    background-color:  #fffdefe8;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-section {
+    background-color:  #fffdefe8;
+    border-radius: 15px;
+
+}
+
+button {
+    cursor: pointer;
+    border-radius: 15px !important;
+
+}
+
+.table {
+    background-color: #ffffff;
+    border-radius: 15px !important;
+}

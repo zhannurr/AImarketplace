@@ -240,3 +240,11 @@
 
 
 
+
+
+
+
+yellow = #E09F3E
+red = #9E2A2B
+blue = #335c67
+vanilla = #FFF3B0
