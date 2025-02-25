@@ -18,4 +18,12 @@ router.get("/model", async (req, res) => {
     res.sendFile(path.join(__dirname, "../views/model.html"));
 })
 
+router.get("/signin", async (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+})
+
+router.get("/signup", async (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+})
+
 module.exports = router;
