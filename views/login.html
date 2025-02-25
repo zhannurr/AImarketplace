@@ -29,7 +29,7 @@
                 </form>
                 <form id="signin" action="/signin" method="POST">
                     <h2>For authorized users</h2>
-                    <input type="text" id="username1" name="email1" placeholder="Username" required>
+                    <input type="text" id="email1" name="email1" placeholder="Email" required>
                     <input type="password" id="passw1" name = "passw1" placeholder="Password" required>
                     <button type="submit" id="signinBtn" name="signinBtn">Sign In</button>
                 </form>
@@ -69,10 +69,10 @@
                 const email = document.getElementById('email').value;
                 const passw = document.getElementById('passw').value;
     
-                const response = await fetch('/signup', {
+                const response = await fetch('/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, surname, email, passw })
+                    body: JSON.stringify({ name, surname, email, password: passw })
                 });
     
                 const data = await response.json();
@@ -82,13 +82,13 @@
             // Handle Signin
             signinForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const email1 = document.getElementById('username1').value;
+                const email1 = document.getElementById('email1').value;
                 const passw1 = document.getElementById('passw1').value;
     
-                const response = await fetch('/signin', {
+                const response = await fetch('/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email1, passw1 })
+                    body: JSON.stringify({ email:email1, password:passw1 })
                 });
     
                 const data = await response.json();
@@ -96,6 +96,7 @@
                 if (data.token) {
                     localStorage.setItem('token', data.token);
                     alert('Login successful');
+                    window.location.href = "/"
                 } else {
                     alert(data.error);
                 }
