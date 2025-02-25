@@ -26,4 +26,8 @@ router.get("/signup", async (req, res) => {
     res.sendFile(path.join(__dirname, "../views/login.html"));
 })
 
+router.get("/profile", async (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/profile.html"));
+})
+
 module.exports = router;

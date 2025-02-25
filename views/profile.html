@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+<h2>User Profile</h2>
+<p><strong>Name:</strong> <span id="name"></span></p>
+<p><strong>Surname:</strong> <span id="surname"></span></p>
+<p><strong>Email:</strong> <span id="email"></span></p>
+
+<form id="profile-form">
+    <label>New Name:</label>
+    <input type="text" id="newName">
+    <br>
+
+    <label>New Surname:</label>
+    <input type="text" id="newSurname">
+    <br>
+
+    <label>New Email:</label>
+    <input type="email" id="newEmail">
+    <br>
+
+    <label>New Password:</label>
+    <input type="password" id="newPassword">
+    <br>
+
+    <button type="submit">Update Profile</button>
+</form>
+<button id="logout-btn">Logout</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("You are not logged in!");
+            window.location.href = "/signin";
+            return;
+        }
+
+        // Fetch user data
+        const response = await fetch("http://localhost:8080/users/profile", {
+            method: "GET",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        const user = await response.json();
+        if (user.message) {
+            alert(user.message);
+            return;
+        }
+
+        document.getElementById("name").textContent = user.name;
+        document.getElementById("surname").textContent = user.surname;
+        document.getElementById("email").textContent = user.email;
+    });
+
+    // Handle profile update
+    document.getElementById("profile-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("You are not logged in!");
+            window.location.href = "/signin";
+            return;
+        }
+
+        const response = await fetch("http://localhost:8080/users/profile", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name: document.getElementById("newName").value,
+                surname: document.getElementById("newSurname").value,
+                email: document.getElementById("newEmail").value,
+                password: document.getElementById("newPassword").value
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+        }
+        alert(data.message);
+        location.reload(); // Refresh the page to show updated data
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("token"); // Remove token from local storage
+        alert("Logged out successfully!");
+        window.location.href = "/signin"; // Redirect to login page
+    });
+</script>
+</body>
+</html>

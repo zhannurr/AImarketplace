@@ -79,7 +79,12 @@
                 if (data.error) {
                     alert(data.error);
                 }
-                alert("Registration successful")
+                else if (data.message) {
+                    alert(data.message)
+                } else {
+                    alert("Registration successful")
+                }
+
             });
     
             // Handle Signin
@@ -100,8 +105,12 @@
                     localStorage.setItem('token', data.token);
                     alert('Login successful');
                     window.location.href = "/"
-                } else {
+                }
+                if (data.error) {
                     alert(data.error);
+                }
+                if (data.message) {
+                    alert(data.message)
                 }
             });
     
