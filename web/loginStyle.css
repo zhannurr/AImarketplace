@@ -1,0 +1,226 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Montserrat";
+}
+body{
+    background-color:  rgb(255,247,236);
+    background:linear-gradient(to right,#e8e6cb,#ffd084);
+}
+.container{
+    background:rgb(255,247,236);
+    width:450px;
+    padding:1.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(1, 30, 8, 0.9);
+}
+form{
+    margin:0 2rem;
+}
+.form-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    padding:1.3rem;
+    margin-bottom:0.4rem;
+}
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #edd9ae;
+    padding-left:1.5rem;
+    font-size:15px;
+}
+.input-group{
+    padding:1% 0;
+    position:relative;
+
+}
+.input-group i{
+    position:absolute;
+    color:black;
+}
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid hsl(45, 100%, 42%);
+}
+input::placeholder{
+    color:transparent;
+}
+label{
+    color:#757575;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-3em;
+    color:hsl(45, 100%, 42%);
+    font-size:15px;
+}
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-bottom:1rem;
+
+}
+.recover a{
+    text-decoration:none;
+    color:darkgreen;
+}
+.recover a:hover{
+    color:green;
+    text-decoration:underline;
+}
+button{
+    font-size:1.1rem;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:darkgreen;
+    color:white;
+    cursor:pointer;
+    transition:0.9s;
+}
+button:hover{
+    background:green;
+}
+.or{
+    font-size:1.1rem;
+    margin-top:0.5rem;
+    text-align:center;
+}
+.icons{
+    text-align:center;
+}
+.icons i{
+    color:darkgreen;
+    padding:0.8rem 1.5rem;
+    border-radius:10px;
+    font-size:1.5rem;
+    cursor:pointer;
+    border:2px solid rgb(255, 201, 39);
+    margin:0 15px;
+    transition:1s;
+}
+.icons i:hover{
+    background:#07001f;
+    font-size:1.6rem;
+    border:2px solid green;
+}
+.links{
+    display:flex;
+    justify-content:space-around;
+    padding:0 4rem;
+    margin-top:0.9rem;
+    font-weight:bold;
+}
+ #signUpButton, #signInButton{
+    color: darkgreen;
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+#signUpButton:hover, #signInButton:hover {
+    text-decoration:underline;
+    color:darkgreen;
+} 
+
+
+.dark-theme h1, 
+.dark-theme h2, 
+.dark-theme h3, 
+.dark-theme h4, 
+.dark-theme h5, 
+.dark-theme h6 {
+    color: white !important;
+}
+
+.dark-theme .header {
+    background-color: #333 !important;
+}
+
+.dark-theme .nav_links a {
+    color: #8ABE61 !important;
+}
+
+.dark-theme .nav_links a:hover {
+    color: rgb(54, 64, 57);
+}
+
+.dark-theme .btn {
+    background-color: #515151 !important;
+    color: white !important;
+}
+
+.dark-theme .btn:hover {
+    background-color: #333 !important;
+}
+
+.dark-theme .card {
+    background-color: #444 !important;
+    color: white !important;
+}
+
+.dark-theme .card:hover {
+    background-color: #555 !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-theme .footer {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.dark-theme .footer a {
+    color: white !important;
+}
+
+.dark-theme .form-container {
+    background-color: #444 !important;
+    color: white !important;
+}
+
+.dark-theme .form-container input[type="text"], 
+.dark-theme .form-container input[type="password"] {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.dark-theme .form-container .btn {
+    background-color: #04AA6D !important;
+    color: white !important;
+}
+
+.dark-theme .form-container .cancel {
+    background-color: red !important;
+}
+
+.dark-theme .messageDiv {
+    background-color: #555 !important;
+    color: white !important;
+}
+
+.dark-theme .container {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border-radius: 20px !important;
+}
+
+.dark-theme .card-body {
+    color: white !important;
+}
+
+.dark-theme .card-title, 
+.dark-theme .card-text {
+    color: white !important;
+}
