@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI model marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="/styleLogin.css">
+    
+</head>
+<body>
+    <h1>Welcome to Car Management!</h1>
+    <div class="container">
+        <div class="form-container">
+            <div class="toggle">
+                <button id="userBtn1">Register</button>
+                <button id="userBtn2">Authorize</button>
+            </div>
+
+            <div class="form-box">
+                <form id="signup" action="/signup" method="POST">
+                    <h2>For new users</h2>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="text" id="surname" name="Surname" placeholder="Surname" required>
+                    <input type="text" id="email" name="email" placeholder="Email account" required>
+                    <input type="password" id="passw" name="passw" placeholder="Password" required>
+                    <button type="submit" id="signupBtn" name="signupBtn">Sign Up</button>
+                </form>
+                <form id="signin" action="/signin" method="POST">
+                    <h2>For authorized users</h2>
+                    <input type="text" id="username1" name="email1" placeholder="Username" required>
+                    <input type="password" id="passw1" name = "passw1" placeholder="Password" required>
+                    <button type="submit" id="signinBtn" name="signinBtn">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const signupForm = document.getElementById('signup');
+            const signinForm = document.getElementById('signin');
+            const userBtn1 = document.getElementById('userBtn1');
+            const userBtn2 = document.getElementById('userBtn2');
+    
+            signupForm.style.display = 'block';
+            signinForm.style.display = 'none';
+            userBtn1.classList.add('active');
+    
+            userBtn1.addEventListener('click', () => {
+                signupForm.style.display = 'block';
+                signinForm.style.display = 'none';
+                userBtn1.classList.add('active');
+                userBtn2.classList.remove('active');
+            });
+    
+            userBtn2.addEventListener('click', () => {
+                signupForm.style.display = 'none';
+                signinForm.style.display = 'block';
+                userBtn2.classList.add('active');
+                userBtn1.classList.remove('active');
+            });
+    
+            // Handle Signup
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const surname = document.getElementById('surname').value;
+                const email = document.getElementById('email').value;
+                const passw = document.getElementById('passw').value;
+    
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, surname, email, passw })
+                });
+    
+                const data = await response.json();
+                alert(data.message || data.error);
+            });
+    
+            // Handle Signin
+            signinForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email1 = document.getElementById('username1').value;
+                const passw1 = document.getElementById('passw1').value;
+    
+                const response = await fetch('/signin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email1, passw1 })
+                });
+    
+                const data = await response.json();
+                
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    alert('Login successful');
+                } else {
+                    alert(data.error);
+                }
+            });
+    
+            // Access Protected Route
+            async function accessProtected() {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    alert('No token found. Please log in.');
+                    return;
+                }
+    
+                const response = await fetch('/protected', {
+                    method: 'GET',
+                    headers: { 'Authorization': token }
+                });
+    
+                const data = await response.json();
+                alert(data.message || data.error);
+            }
+        });
+    </script>
+    
+</body>
+</html>
