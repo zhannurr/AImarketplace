@@ -34,7 +34,7 @@ router.post(
             user = new User({ name, surname, email, password: hashedPassword });
             await user.save();
 
-            const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+            const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
             res.status(201).json({ token });
         } catch (error) {
@@ -69,7 +69,7 @@ router.post(
                 return res.status(400).json({ message: "Invalid credentials" });
             }
 
-            const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
+            const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
             res.json({ token });
         } catch (error) {
