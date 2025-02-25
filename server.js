@@ -14,6 +14,7 @@ const modelRoutes = require('./routes/modelRoutes');
 const manufacturerRoutes = require("./routes/manufacturerRoutes");
 const frontendRoutes = require("./routes/frontendRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api", carRoutes);
 app.use("/api", modelRoutes);
 app.use("/api", manufacturerRoutes);
+app.use("/users", userRoutes);
 app.use("/", frontendRoutes);
 app.use("/", authRoutes);
 
