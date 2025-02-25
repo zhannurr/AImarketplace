@@ -85,7 +85,7 @@
 
         async function loadManufacturers() {
             try {
-                const response = await fetch(`${BASE_URL}/manufacturers`);
+                const response = await fetch(`${BASE_URL}/api/manufacturers`);
                 const manufacturers = await response.json();
                 if (!manufacturers) {
                     return
@@ -124,7 +124,7 @@
             };
 
             try {
-                const response = await fetch(`${BASE_URL}/manufacturers`, {
+                const response = await fetch(`${BASE_URL}/api/manufacturers`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(manufacturer),
@@ -143,7 +143,7 @@
 
         async function deleteManufacturer(id) {
             if (confirm("Are you sure you want to delete this manufacturer?")) {
-                await fetch(`${BASE_URL}/manufacturers/${id}`, { method: 'DELETE' });
+                await fetch(`${BASE_URL}/api/manufacturers/${id}`, { method: 'DELETE' });
                 loadManufacturers();
             }
         }
@@ -156,7 +156,7 @@
 
             if (!name || !country || !foundation_year) return;
 
-            await fetch(`${BASE_URL}/manufacturers/${id}`, {
+            await fetch(`${BASE_URL}/api/manufacturers/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, country, foundation_year, website }),
@@ -171,7 +171,7 @@
             resultDiv.innerHTML = '';
 
             try {
-                const response = await fetch(`${BASE_URL}/manufacturers/${manufacturerId}`);
+                const response = await fetch(`${BASE_URL}/api/manufacturers/${manufacturerId}`);
                 if (!response.ok) throw new Error('Manufacturer not found.');
                 const manufacturer = await response.json();
 

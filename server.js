@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/", carRoutes);
-app.use("/", modelRoutes);
-app.use("/", manufacturerRoutes);
+app.use("/api", carRoutes);
+app.use("/api", modelRoutes);
+app.use("/api", manufacturerRoutes);
 app.use("/", frontendRoutes);
 
 // MongoDB Connection
