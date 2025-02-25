@@ -76,7 +76,10 @@
                 });
     
                 const data = await response.json();
-                alert(data.message || data.error);
+                if (data.error) {
+                    alert(data.error);
+                }
+                alert("Registration successful")
             });
     
             // Handle Signin
