@@ -67,7 +67,6 @@
             <table class="table table-hover text-center">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Country</th>
                         <th>Foundation Year</th>
@@ -97,14 +96,13 @@
                 manufacturers.forEach(manufacturer => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${manufacturer.id}</td>
                         <td>${manufacturer.name}</td>
                         <td>${manufacturer.country}</td>
                         <td>${manufacturer.foundation_year}</td>
                         <td>${manufacturer.website || ''}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" onclick="updateManufacturer('${manufacturer.id}')">Update</button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteManufacturer('${manufacturer.id}')">Delete</button>
+                            <button class="btn btn-warning btn-sm" onclick="updateManufacturer('${manufacturer._id}')">Update</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteManufacturer('${manufacturer._id}')">Delete</button>
                         </td>
                     `;
                     table.appendChild(row);
@@ -179,7 +177,6 @@
 
                 resultDiv.innerHTML = `
                 <div class="alert alert-info">
-                    <p><strong>ID:</strong> ${manufacturer.id}</p>
                     <p><strong>Name:</strong> ${manufacturer.name}</p>
                     <p><strong>Country:</strong> ${manufacturer.country}</p>
                     <p><strong>Foundation Year:</strong> ${manufacturer.foundation_year}</p>

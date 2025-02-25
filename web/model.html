@@ -67,7 +67,6 @@
             <table class="table table-hover text-center">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Country</th>
                         <th>Year</th>
@@ -97,15 +96,14 @@
                 models.forEach(model => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${model.id}</td>
                         <td>${model.name}</td>
                         <td>${model.country}</td>
                         <td>${model.year}</td>
                         <td>${model.description || ''}</td>
                         <td>${model.manufacturer_id}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" onclick="updateModel('${model.id}')">Update</button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteModel('${model.id}')">Delete</button>
+                            <button class="btn btn-warning btn-sm" onclick="updateModel('${model._id}')">Update</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteModel('${model._id}')">Delete</button>
                         </td>
                     `;
                     table.appendChild(row);
@@ -182,7 +180,6 @@
 
                 resultDiv.innerHTML = `
                 <div class="alert alert-info">
-                    <p><strong>ID:</strong> ${model.id}</p>
                     <p><strong>Name:</strong> ${model.name}</p>
                     <p><strong>Country:</strong> ${model.country}</p>
                     <p><strong>Year:</strong> ${model.year}</p>

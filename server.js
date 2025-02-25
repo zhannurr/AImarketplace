@@ -29,7 +29,8 @@ const carSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   color: { type: String, required: true },
   model_id: { type: String, required: true },
-});
+},  { toJSON: { virtuals: false }, toObject: { virtuals: false } }
+);
 
 const Car = mongoose.model('Car', carSchema);
 
@@ -81,6 +82,142 @@ app.delete('/cars/:id', async (req, res) => {
     res.status(500).send('Error deleting car');
   }
 });
+
+
+
+
+
+
+
+
+
+// Model Schema
+const modelSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    country: { type: String, required: true },
+    year: { type: Number, required: true },
+    description: { type: String },
+    manufacturer_id: { type: String, required: true },
+  }, { toJSON: { virtuals: false }, toObject: { virtuals: false } });
+  
+  const Model = mongoose.model('Model', modelSchema);
+  
+  // Routes
+  app.get('/models', async (req, res) => {
+    try {
+      const models = await Model.find();
+      res.json(models);
+    } catch (err) {
+      res.status(500).send('Error fetching models');
+    }
+  });
+  
+  app.post('/models', async (req, res) => {
+    try {
+      const { name, country, year, description, manufacturer_id } = req.body;
+      const newModel = new Model({ name, country, year, description, manufacturer_id });
+      await newModel.save();
+      res.status(201).json(newModel);
+    } catch (err) {
+      res.status(500).send('Error adding model');
+    }
+  });
+  
+  app.get('/models/:id', async (req, res) => {
+    try {
+      const model = await Model.findById(req.params.id);
+      if (!model) return res.status(404).send('Model not found');
+      res.json(model);
+    } catch (err) {
+      res.status(500).send('Error retrieving model');
+    }
+  });
+  
+  app.put('/models/:id', async (req, res) => {
+    try {
+      const updatedModel = await Model.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.json(updatedModel);
+    } catch (err) {
+      res.status(500).send('Error updating model');
+    }
+  });
+  
+  app.delete('/models/:id', async (req, res) => {
+    try {
+      await Model.findByIdAndDelete(req.params.id);
+      res.send('Model deleted successfully');
+    } catch (err) {
+      res.status(500).send('Error deleting model');
+    }
+  });
+
+
+
+
+
+
+// Manufacturer Schema
+const manufacturerSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    country: { type: String, required: true },
+    foundation_year: { type: Number, required: true },
+    website: { type: String },
+  }, { toJSON: { virtuals: false }, toObject: { virtuals: false } });
+  
+  const Manufacturer = mongoose.model('Manufacturer', manufacturerSchema);
+  
+  // Routes
+  app.get('/manufacturers', async (req, res) => {
+    try {
+      const manufacturers = await Manufacturer.find();
+      res.json(manufacturers);
+    } catch (err) {
+      res.status(500).send('Error fetching manufacturers');
+    }
+  });
+  
+  app.post('/manufacturers', async (req, res) => {
+    try {
+      const { name, country, foundation_year, website } = req.body;
+      const newManufacturer = new Manufacturer({ name, country, foundation_year, website });
+      await newManufacturer.save();
+      res.status(201).json(newManufacturer);
+    } catch (err) {
+      res.status(500).send('Error adding manufacturer');
+    }
+  });
+  
+  app.get('/manufacturers/:id', async (req, res) => {
+    try {
+      const manufacturer = await Manufacturer.findById(req.params.id);
+      if (!manufacturer) return res.status(404).send('Manufacturer not found');
+      res.json(manufacturer);
+    } catch (err) {
+      res.status(500).send('Error retrieving manufacturer');
+    }
+  });
+  
+  app.put('/manufacturers/:id', async (req, res) => {
+    try {
+      const updatedManufacturer = await Manufacturer.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      res.json(updatedManufacturer);
+    } catch (err) {
+      res.status(500).send('Error updating manufacturer');
+    }
+  });
+  
+  app.delete('/manufacturers/:id', async (req, res) => {
+    try {
+      await Manufacturer.findByIdAndDelete(req.params.id);
+      res.send('Manufacturer deleted successfully');
+    } catch (err) {
+      res.status(500).send('Error deleting manufacturer');
+    }
+  });
+
+
+
+
 
 // Start the Server
 const PORT = process.env.PORT || 8080;
