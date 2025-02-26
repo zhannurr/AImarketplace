@@ -164,7 +164,10 @@
             const color = prompt('Enter new color:');
             const model_id = prompt('Enter new model ID:');
 
-            if (!make || !price || !color || !model_id) return;
+            if (!make || !price || !color || !model_id) {
+                alert("Empty field are forbidden")
+                return;
+            }
 
             const response = await (await fetch(`${BASE_URL}/api/cars/${id}`, {
                 method: 'PUT',

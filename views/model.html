@@ -171,7 +171,12 @@
             const description = prompt('Enter new description:');
             const manufacturer_id = prompt('Enter new manufacturer ID:');
 
-            if (!name || !country || !year || !manufacturer_id) return;
+            if (!name || !country || !year || !manufacturer_id) {
+                alert("Empty field are forbidden")
+                return
+            }
+
+
 
             const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {
                 method: 'PUT',

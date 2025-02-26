@@ -168,7 +168,11 @@
             const foundation_year = parseInt(prompt('Enter new foundation year:'), 10);
             const website = prompt('Enter new website URL:');
 
-            if (!name || !country || !foundation_year) return;
+
+            if (!name || !country || !foundation_year){
+                alert("Empty field are forbidden")
+                return
+            }
 
             const response = await (await fetch(`${BASE_URL}/api/manufacturers/${id}`, {
                 method: 'PUT',
