@@ -1,4 +1,4 @@
-#Car Management System
+# Car Management System
 
 ## Overview
 The Car Management System is a web application that allows users to register, authenticate, and manage car-related data such as manufacturers and models. The project includes user authentication with JWT tokens and serves static HTML pages.
