@@ -84,6 +84,12 @@
     <script>
         const BASE_URL = 'https://carmanage-tubf.onrender.com'; // Backend server URL
 
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("You are not logged in!");
+            window.location.href = "/signin";
+        }
+
         async function loadModels() {
             try {
                 const response = await fetch(`${BASE_URL}/api/models`);
@@ -145,7 +151,7 @@
 
         async function deleteModel(id) {
             if (confirm("Are you sure you want to delete this model?")) {
-                const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {method: 'DELETE'})).json();
+                const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {method: 'DELETE', headers: {"Authorization": `Bearer ${token}`}})).json();
 
                 if (response.error) {
                     alert(response.error)
@@ -169,7 +175,7 @@
 
             const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {
                 method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
+                headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${token}`},
                 body: JSON.stringify({name, country, year, description, manufacturer_id}),
             })).json();
 
