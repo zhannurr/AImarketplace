@@ -145,7 +145,15 @@
 
         async function deleteModel(id) {
             if (confirm("Are you sure you want to delete this model?")) {
-                await fetch(`${BASE_URL}/api/models/${id}`, { method: 'DELETE' });
+                const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {method: 'DELETE'})).json();
+
+                if (response.error) {
+                    alert(response.error)
+                }
+                if (response.message) {
+                    alert(response.message)
+                }
+
                 loadModels();
             }
         }
@@ -159,11 +167,19 @@
 
             if (!name || !country || !year || !manufacturer_id) return;
 
-            await fetch(`${BASE_URL}/api/models/${id}`, {
+            const response = await (await fetch(`${BASE_URL}/api/models/${id}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, country, year, description, manufacturer_id }),
-            });
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, country, year, description, manufacturer_id}),
+            })).json();
+
+            if (response.error) {
+                alert(response.error)
+            }
+            if (response.message) {
+                alert(response.message)
+            }
+
             loadModels();
         }
 

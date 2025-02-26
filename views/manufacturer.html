@@ -143,7 +143,15 @@
 
         async function deleteManufacturer(id) {
             if (confirm("Are you sure you want to delete this manufacturer?")) {
-                await fetch(`${BASE_URL}/api/manufacturers/${id}`, { method: 'DELETE' });
+                const response = await (await fetch(`${BASE_URL}/api/manufacturers/${id}`, {method: 'DELETE'})).json();
+
+                if (response.error) {
+                    alert(response.error)
+                }
+                if (response.message) {
+                    alert(response.message)
+                }
+
                 loadManufacturers();
             }
         }
@@ -156,11 +164,19 @@
 
             if (!name || !country || !foundation_year) return;
 
-            await fetch(`${BASE_URL}/api/manufacturers/${id}`, {
+            const response = await (await fetch(`${BASE_URL}/api/manufacturers/${id}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, country, foundation_year, website }),
-            });
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, country, foundation_year, website}),
+            })).json();
+
+            if (response.error) {
+                alert(response.error)
+            }
+            if (response.message) {
+                alert(response.message)
+            }
+
             loadManufacturers();
         }
 

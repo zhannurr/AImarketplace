@@ -1,5 +1,6 @@
 ﻿const express = require("express");
 const Car = require("../models/car");
+const {checkToken, checkAdmin} = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.get('/cars', async (req, res) => {
@@ -32,21 +33,21 @@ router.get('/cars/:id', async (req, res) => {
     }
 });
 
-router.put('/cars/:id', async (req, res) => {
+router.put('/cars/:id', checkToken, checkAdmin, async (req, res) => {
     try {
         const updatedCar = await Car.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatedCar);
     } catch (err) {
-        res.status(500).send('Error updating car');
+        res.status(500).json({message: 'Error updating car'});
     }
 });
 
-router.delete('/cars/:id', async (req, res) => {
+router.delete('/cars/:id', checkToken, checkAdmin, async (req, res) => {
     try {
         await Car.findByIdAndDelete(req.params.id);
-        res.send('Car deleted successfully');
+        res.json({message: 'Car deleted successfully'});
     } catch (err) {
-        res.status(500).send('Error deleting car');
+        res.status(500).json({message:'Error deleting car'});
     }
 });
 

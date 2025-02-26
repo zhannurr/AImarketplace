@@ -1,5 +1,6 @@
 ﻿const express = require("express");
 const Manufacturer = require("../models/manufacturer");
+const {checkToken, checkAdmin} = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.get('/manufacturers', async (req, res) => {
@@ -32,21 +33,21 @@ router.get('/manufacturers/:id', async (req, res) => {
     }
 });
 
-router.put('/manufacturers/:id', async (req, res) => {
+router.put('/manufacturers/:id', checkToken, checkAdmin, async (req, res) => {
     try {
         const updatedManufacturer = await Manufacturer.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatedManufacturer);
     } catch (err) {
-        res.status(500).send('Error updating manufacturer');
+        res.status(500).json({message:'Error updating manufacturer'});
     }
 });
 
-router.delete('/manufacturers/:id', async (req, res) => {
+router.delete('/manufacturers/:id', checkToken, checkAdmin, async (req, res) => {
     try {
         await Manufacturer.findByIdAndDelete(req.params.id);
-        res.send('Manufacturer deleted successfully');
+        res.json({message:'Manufacturer deleted successfully'});
     } catch (err) {
-        res.status(500).send('Error deleting manufacturer');
+        res.status(500).json({message:'Error deleting manufacturer'});
     }
 });
 
