@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('fon.jpg');
+                url('images/fon.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
