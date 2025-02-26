@@ -42,7 +42,7 @@ Ensure you have the following installed on your system:
    npm start
    ```
 
-### API Documentation
+## API Documentation
 
 #### 1. Authentication
 - **Base URL:** `/api/auth`
@@ -109,5 +109,11 @@ Ensure you have the following installed on your system:
     ```
   - `DELETE /:id` → Remove a model
 
+## Deployment
+We have deployed website on Render. It can be accessed by link https://carmanage-tubf.onrender.com/
 
+
+## License
+
+This projected is created and uploaded under MIT License.
 
