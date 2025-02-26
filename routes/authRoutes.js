@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/User");
-const Token = require("../models/Token"); // Добавили модель для refresh token
+const Token = require("../models/Token"); 
 const router = express.Router();
 require("dotenv").config();
 
